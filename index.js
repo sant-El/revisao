@@ -1,26 +1,32 @@
-const prompt = require ("prompt-sync")();
-const {mensagemMenu,add,list} = require ("./modules")
+const prompt = require("prompt-sync")();
+const { add, list } = require("./modules");
 
-mensagemMenu()
+while (true) {
+  console.log(`\n▦▦▦ Sistema de Gestão ▦▦▦
+1. Adicionar produto    
+2. Atualizar produto
+3. Remover um produto
+4. Listar produtos
+5. Sair    
+`);
+  let opcao = Number(prompt(`Digite o número da função desejada: `));
 
-
-switch (mensagemMenu()) {
+  switch (opcao) {
     case 1:
-    add()
-    console.log(mensagemMenu)
-        break;
+      add();
+      break;
     case 2:
-    
-        break;
+      break;
     case 3:
-
-        break;
+      break;
     case 4:
-    list()
-        break;
+      list();
+      break;
     case 5:
-
-        break;
+    process.exit()
+      break;
     default:
-        break;
+    console.log(`Opção inválida.`)
+      break;
+  }
 }
