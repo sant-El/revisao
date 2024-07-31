@@ -1,5 +1,8 @@
 const prompt = require("prompt-sync")();
-const { add, list } = require("./modules");
+const { add, list, remove, update } = require("./modules");
+const clearScreen = () => {
+  process.stdout.write("\x1Bc");
+};
 
 while (true) {
   console.log(`\n▦▦▦ Sistema de Gestão ▦▦▦
@@ -16,17 +19,22 @@ while (true) {
       add();
       break;
     case 2:
+      update();
+      console.log(`Produto atualizado com sucesso!`);
       break;
     case 3:
+      remove();
       break;
     case 4:
       list();
       break;
     case 5:
-    process.exit()
+      clearScreen();
+      console.log(`Até mais!`);
+      process.exit();
       break;
     default:
-    console.log(`Opção inválida.`)
+      console.log(`Opção inválida.`);
       break;
   }
 }
